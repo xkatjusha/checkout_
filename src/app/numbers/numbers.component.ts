@@ -7,103 +7,101 @@ import { IItemList, ProductsService } from '../products.service';
   styleUrls: ['./numbers.component.css']
 })
 export class NumbersComponent {
-  numberofnumbers: number;
   productData;
 
   constructor(public productsService: ProductsService) {
     this.productsService.inputproduct = [];
-    this.numberofnumbers = 0;
     this.productData = this.productsService.productList;
   }
 
   one() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("1");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   two() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("2");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   three() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("3");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   four() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("4");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   five() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("5");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   six() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("6");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   seven() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("7");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   eight() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("8");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   nine() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("9");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   zero() {
-    if (this.numberofnumbers <= 3) {
-      this.numberofnumbers = this.numberofnumbers + 1;
+    if (this.productsService.numberofnumbers <= 3) {
+      this.productsService.numberofnumbers = this.productsService.numberofnumbers + 1;
       this.productsService.inputproduct.push("0");
     }
     this.id();
-    this.compare();
+    this.productsService.compare();
   }
 
   erase(){
@@ -112,26 +110,6 @@ export class NumbersComponent {
 
   id() {
     this.productsService.idproduct = this.productsService.inputproduct.join('');
-  }
-
-  clear() {
-    for (let i = 0; i < this.productsService.inputproduct.length; i++) {
-      this.productsService.inputproduct.pop();
-    }
-    this.productsService.idproduct = "";
-  }
-
-  compare() {
-    if (this.numberofnumbers === 4) {
-      if (this.productsService.idproduct === this.productData.id) {
-        let items: IItemList = {
-          name: this.productData.name,
-          price: this.productData.price,
-        }
-        this.productsService.itemList.push(items);
-      }
-      this.clear();
-    }
   }
 
 }
