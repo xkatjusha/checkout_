@@ -1,0 +1,14 @@
+div {
+    height: 50px;
+    width: 50px;
+    border-radius: 20%;
+    border: lightslategray 2px solid;
+    display: inline;
+    font-size: 45px;
+    font-family: Arial;
+    background-color:antiquewhite;
+}
+
+.nothing{
+color:antiquewhite;
+}

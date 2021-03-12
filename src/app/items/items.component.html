@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <th>item name</th>
+    <th>item price</th>
+  </tr>
+  <tr  *ngFor="let item of productService.itemList">
+    <td>{{itemData.name}}</td>
+    <td>{{itemData.price}} €</td>
+  </tr>
+</table>
