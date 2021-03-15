@@ -2,9 +2,11 @@
   <tr>
     <th>item name</th>
     <th>item price</th>
+    <th>item delete</th>
   </tr>
-  <tr  *ngFor="let item of productService.itemList">
+  <tr  *ngFor="let item of productService.itemList;index as i">
     <td>{{item.name}}</td>
     <td>{{item.price}} €</td>
+    <td><div (click)="delete(i)">❌</div></td>
   </tr>
 </table>

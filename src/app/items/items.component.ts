@@ -7,9 +7,17 @@ import { IItemList, ProductsService } from '../products.service';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent {
-  @Input() itemList: IItemList;
+  @Input() itemList: IItemList[];
+  @Input() item;
 
 
-  constructor(public productService: ProductsService) { }
+  constructor(public productService: ProductsService) {
+    this.itemList=[];
+   }
+
+  delete(i){
+    console.log("Geh endlich");
+    this.itemList.splice(i, 1);
+  }
 
 }
