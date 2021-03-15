@@ -5,12 +5,16 @@ import { Injectable } from '@angular/core';
 })
 export class ProductsService {
   productList: IPorductList[];
-  inputproduct: string[];
   idproduct: string;
   itemList: IItemList[];
   numberofnumbers: number;
+  currentprice: number;
+
 
   constructor() {
+    this.currentprice = 0;
+    this.idproduct = "";
+    this.itemList = [];
     this.numberofnumbers = 0;
     let product1 = {
       id: "4578", name: "apple", price: 0.59
@@ -40,36 +44,34 @@ export class ProductsService {
       id: "0203", name: "blueberries", price: 1.00
     }
     let product10 = {
-      id: "0000", name: "deposit", price: -0.25
+      id: "0000", name: "deposit", price: -(0.25)
     }
 
     this.productList = [product1, product2, product3, product4, product5, product6, product7, product8, product9, product10];
-
   }
 
   clear() {
-    for (let i = 0; i < this.inputproduct.length; i++) {
-      this.inputproduct.pop();
-    }
     this.idproduct = "";
+    this.numberofnumbers = 0;
   }
 
   compare() {
     if (this.numberofnumbers === 4) {
-      console.log("hallo", this.idproduct);
       for (let i = 0; i < this.productList.length; i++) {
-        console.log(this.productList[i].id);
         if (this.idproduct === this.productList[i].id) {
           let items: IItemList = {
             name: this.productList[i].name,
             price: this.productList[i].price,
           }
           this.itemList.push(items);
+          this.currentprice = this.currentprice + this.productList[i].price;
         }
       }
       this.clear();
     }
   }
+
+ 
 
 }
 

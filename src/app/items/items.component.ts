@@ -7,7 +7,7 @@ import { IItemList, ProductsService } from '../products.service';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent {
-  @Input() itemData: IItemList;
+  @Input() itemList: IItemList;
 
 
   constructor(public productService: ProductsService) { }

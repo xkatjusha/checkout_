@@ -8,17 +8,8 @@ import { IItemList } from '../products.service';
   styleUrls: ['./price.component.css']
 })
 export class PriceComponent  {
-  @Input() itemData: IItemList;
-  currentprice: number;
 
-  constructor(public productsService: ProductsService) { 
-    this.currentprice=0;
-  }
+  constructor(public productsService: ProductsService) {}
 
-  price(){
-    for(let i=0 ; i< this.productsService.itemList.length; i++){
-      this.currentprice=this.currentprice+this.itemData.price;
-    }
-   }
 }
 
