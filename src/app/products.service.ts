@@ -68,10 +68,13 @@ export class ProductsService {
         }
       }
       this.clear();
+      this.test();
     }
   }
 
- 
+ test(){
+   console.log(this.itemList);
+ }
 
 }
 
