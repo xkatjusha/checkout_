@@ -1,3 +1,4 @@
+import { animate, transition } from '@angular/animations';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,15 +8,15 @@ export class ProductsService {
   productList: IPorductList[];
   idproduct: string;
   itemList: IItemList[];
-  numberofnumbers: number;
   currentprice: number;
+  showid: boolean;
 
 
   constructor() {
-    this.currentprice = 0;
+    this.showid=false;
+    this.currentprice = 0.00;
     this.idproduct = "";
     this.itemList = [];
-    this.numberofnumbers = 0;
     let product1 = {
       id: "4578", name: "apple", price: 0.59
     }
@@ -52,13 +53,13 @@ export class ProductsService {
 
   clear() {
     this.idproduct = "";
-    this.numberofnumbers = 0;
   }
 
   compare() {
-    if (this.numberofnumbers === 4) {
+    if (this.idproduct.length === 4) {
       for (let i = 0; i < this.productList.length; i++) {
         if (this.idproduct === this.productList[i].id) {
+          this.showid=false;
           let items: IItemList = {
             name: this.productList[i].name,
             price: this.productList[i].price,
@@ -66,15 +67,23 @@ export class ProductsService {
           this.itemList.push(items);
           this.currentprice = this.currentprice + this.productList[i].price;
         }
+        else if (this.idproduct != this.productList[i].id){
+          this.showid=true;
+        }
       }
-      this.clear();
-      this.test();
+      this.timer();
     }
   }
 
- test(){
-   console.log(this.itemList);
- }
+  async timer() {
+    await this.Sleep(2000); // Pausiert die Funktion für 3 Sekunden
+    this.clear();
+      this.showid=false;
+   }
+
+  Sleep(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+   }
 
 }
 
